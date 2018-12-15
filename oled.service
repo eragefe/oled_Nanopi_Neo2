@@ -4,7 +4,7 @@ After=multi-user.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/python /root/oled_old/oled2.py
+ExecStart=/usr/bin/python /root/oled/oled.py
 Restart=on-abort
  
 [Install]
