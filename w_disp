@@ -1,0 +1,14 @@
+#!/bin/bash
+
+while true
+do
+
+   if output=$(pgrep -f oled) &>/dev/null
+   then
+      :
+   else
+      service oled start
+      sleep 9
+fi
+
+done
