@@ -59,7 +59,6 @@ while True:
           with canvas(device) as draw:
              elaps = client.status()['elapsed']
              m,s = divmod(float(elaps), 60)
-             h,m = divmod(m, 60)
              eltime = "%02d:%02d" % (m, s)
              draw.text((0,15),str(vol), font=font, fill=255)
              draw.text((70,45),str(eltime), font=font2, fill=255)
@@ -69,7 +68,6 @@ while True:
           with canvas(device) as draw:
              elaps = client.status()['elapsed']
              m,s = divmod(float(elaps), 60)
-             h,m = divmod(m, 60)
              eltime = "%02d:%02d" % (m, s)
              draw.text((0,15),str(vol), font=font, fill=255)
              draw.text((70,45),str(eltime), font=font2, fill=255)
