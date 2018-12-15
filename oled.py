@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import sys
 import time
 import os
@@ -21,7 +23,7 @@ client.timeout = 10
 client.idletimeout = None
 client.connect("localhost", 6600)
 
-font = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 45)
+font = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 50)
 font2 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 13)
 font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
 font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
@@ -53,25 +55,25 @@ while True:
       if '1' in open('/sys/class/gpio/gpio5/value').read():
         if (state == 'stop'):
           with canvas(device) as draw:
-             draw.text((0,15),str(vol), font=font, fill=255)
+             draw.text((0,8),str(vol), font=font, fill=255)
 
         if state == 'play':
           with canvas(device) as draw:
              elaps = client.status()['elapsed']
              m,s = divmod(float(elaps), 60)
              eltime = "%02d:%02d" % (m, s)
-             draw.text((0,15),str(vol), font=font, fill=255)
-             draw.text((70,45),str(eltime), font=font2, fill=255)
-             draw.text((77,15),">>", font=font4, fill=255)
+             draw.text((0,8),str(vol), font=font, fill=255)
+             draw.text((80,45),str(eltime), font=font2, fill=255)
+             draw.text((87,15),">>", font=font4, fill=255)
 
         if state == 'pause':
           with canvas(device) as draw:
              elaps = client.status()['elapsed']
              m,s = divmod(float(elaps), 60)
              eltime = "%02d:%02d" % (m, s)
-             draw.text((0,15),str(vol), font=font, fill=255)
-             draw.text((70,45),str(eltime), font=font2, fill=255)
-             draw.text((77,15)," ||", font=font4, fill=255)
+             draw.text((0,8),str(vol), font=font, fill=255)
+             draw.text((80,45),str(eltime), font=font2, fill=255)
+             draw.text((87,15)," ||", font=font4, fill=255)
 
 if __name__ == "__main__":
     try:
