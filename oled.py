@@ -21,10 +21,10 @@ client.timeout = 10
 client.idletimeout = None
 client.connect("localhost", 6600)
 
-font = ImageFont.truetype('Verdana.ttf', 45)
-font2 = ImageFont.truetype('Verdana.ttf', 13)
-font3 = ImageFont.truetype('Verdana.ttf', 23)
-font4 = ImageFont.truetype('Arial-Bold.ttf', 20)
+font = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 45)
+font2 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 13)
+font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
+font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 
 with canvas(device) as draw:
     cmd = "hostname -I | cut -d\' \' -f1"
