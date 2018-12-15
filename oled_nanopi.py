@@ -24,16 +24,16 @@ client.connect("localhost", 6600)
 with canvas(device) as draw:
     cmd = "hostname -I | cut -d\' \' -f1"
     IP = subprocess.check_output(cmd, shell = True )
-    font2 = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
+    font2 = ImageFont.truetype('Verdana.ttf', 13)
     draw.text((45,50), "NOS-1", font=font2, fill=255)
     draw.text((45,5), "G-Dis", font=font2, fill=255)
     draw.text((0, 25), "IP: " + str(IP),  font=font2, fill=255)
 
 
 while True:
-    font = ImageFont.truetype('/root/oled/Verdana.ttf', 45)
-    font2 = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
-    font3 = ImageFont.truetype('/root/oled/Verdana.ttf', 23)
+    font = ImageFont.truetype('Verdana.ttf', 45)
+    font2 = ImageFont.truetype('Verdana.ttf', 13)
+    font3 = ImageFont.truetype('Verdana.ttf', 23)
     state = client.status()['state']
     vol=client.status()['volume']
 
