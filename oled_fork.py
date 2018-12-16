@@ -1,8 +1,9 @@
 #! /usr/bin/env python
 
 import time
-from socket import error as socket_error
 import subprocess
+from socket import error as socket_error
+import os.path
 
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
@@ -99,12 +100,18 @@ font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
 font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 
 with canvas(device) as draw:
+    device.contrast(255) #0-255
+    img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
+       'gdis3.png'))
+    logo = Image.open(img_path)
+    draw.bitmap((25, 0), logo, fill="white")
+time.sleep(5)
+
+with canvas(device) as draw:
     cmd = "hostname -I | cut -d\' \' -f1"
     IP = subprocess.check_output(cmd, shell = True )
-    draw.text((45,50), "NOS-1", font=font2, fill=255)
-    draw.text((40,0), "G-Dis", font=font4, fill=255)
-    draw.text((0, 30), "IP: " + str(IP),  font=font2, fill=255)
-time.sleep(10)
+    draw.text((0, 20), "IP: " + str(IP),  font=font2, fill=255)
+time.sleep(8)
 
 def main():
   client = MPDConnect()
