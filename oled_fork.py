@@ -1,8 +1,6 @@
 #! /usr/bin/env python
 
-import sys
 import time
-import os
 from socket import error as socket_error
 import subprocess
 
@@ -106,7 +104,7 @@ with canvas(device) as draw:
     draw.text((45,50), "NOS-1", font=font2, fill=255)
     draw.text((40,0), "G-Dis", font=font4, fill=255)
     draw.text((0, 30), "IP: " + str(IP),  font=font2, fill=255)
-time.sleep(1)
+time.sleep(10)
 
 def main():
   client = MPDConnect()
