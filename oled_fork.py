@@ -127,18 +127,18 @@ def main():
     title = info['title']
     audio = info['audio_info']
 
-    if '1' in open('/sys/class/gpio/gpio4/value').read():
-      if '0' in open('/sys/class/gpio/gpio5/value').read():
+    if '1' in open('/sys/class/gpio/gpio198/value').read():
+      if '0' in open('/sys/class/gpio/gpio199/value').read():
         with canvas(device) as draw:
              draw.text((15,15),"Optical 1", font=font3, fill=255)
 
-    if '0' in open('/sys/class/gpio/gpio4/value').read():
-      if '1' in open('/sys/class/gpio/gpio5/value').read():
+    if '0' in open('/sys/class/gpio/gpio198/value').read():
+      if '1' in open('/sys/class/gpio/gpio199/value').read():
         with canvas(device) as draw:
              draw.text((15,15),"Optical 2", font=font3, fill=255)
 
-    if '1' in open('/sys/class/gpio/gpio4/value').read():
-      if '1' in open('/sys/class/gpio/gpio5/value').read():
+    if '1' in open('/sys/class/gpio/gpio198/value').read():
+      if '1' in open('/sys/class/gpio/gpio199/value').read():
         if (state == 'stop'):
           with canvas(device) as draw:
              draw.text((0,13),str(vol), font=font, fill=255)
