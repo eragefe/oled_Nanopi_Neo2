@@ -108,7 +108,7 @@ with canvas(device) as draw:
 time.sleep(5)
 
 with canvas(device) as draw:
-    cmd = "hostname -I | cut -d\' \' -f1"
+    cmd = "hostname -I"
     IP = subprocess.check_output(cmd, shell = True )
     draw.text((0, 20), "IP: " + str(IP),  font=font2, fill=255)
 time.sleep(8)
