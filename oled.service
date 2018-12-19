@@ -4,7 +4,7 @@ After=multi-user.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /root/oled_Nanopi_Neo2/oled_fork.py
+ExecStart=/usr/bin/python /root/oled_Nanopi_Neo2/oled_fork.py
 Restart=on-failure
  
 [Install]
