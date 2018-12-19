@@ -100,12 +100,14 @@ font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
 font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 
 with canvas(device) as draw:
-    device.contrast(255) #0-255
+    device.contrast(0)
     img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
        'gdis3.png'))
     logo = Image.open(img_path)
     draw.bitmap((25, 0), logo, fill="white")
-time.sleep(5)
+for level in range(0, 255, 1):
+    device.contrast(level)
+    time.sleep(0.1)
 
 with canvas(device) as draw:
     cmd = "hostname -I"
