@@ -102,7 +102,7 @@ font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 with canvas(device) as draw:
     device.contrast(255) #0-255
     img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
-       'gdis.png'))
+       'gdis3.png'))
     logo = Image.open(img_path)
     draw.bitmap((25, 0), logo, fill="white")
 time.sleep(5)
