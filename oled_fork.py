@@ -116,7 +116,7 @@ else:
         img_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'gdis3.png'))
         logo = Image.open(img_path)
         draw.bitmap((25, 0), logo, fill="white")
-    for level in range(0, 255, 2):
+    for level in range(0, 255, 3):
         device.contrast(level)
         time.sleep(0.1)
 
