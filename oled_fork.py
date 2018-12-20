@@ -99,9 +99,7 @@ font2 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 13)
 font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
 font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 
-exists = os.path.isfile('1')
-
-if exists :
+if os.path.isfile('1') :
   device.contrast(255)
 else:
     os.system('echo "199" > /sys/class/gpio/export')
