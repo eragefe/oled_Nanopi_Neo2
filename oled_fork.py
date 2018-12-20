@@ -113,8 +113,7 @@ else:
     os.system('echo 1 > 1')
     with canvas(device) as draw:
         device.contrast(0)
-        img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
-           'gdis3.png'))
+        img_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'gdis3.png'))
         logo = Image.open(img_path)
         draw.bitmap((25, 0), logo, fill="white")
     for level in range(0, 255, 2):
