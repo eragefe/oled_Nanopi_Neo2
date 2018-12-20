@@ -99,6 +99,13 @@ font2 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 13)
 font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
 font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 
+os.system('echo "198" > /sys/class/gpio/export')
+os.system('echo "out" > /sys/class/gpio/gpio198/direction')
+os.system('echo "1" > /sys/class/gpio/gpio198/value')
+os.system('echo "199" > /sys/class/gpio/export')
+os.system('echo "out" > /sys/class/gpio/gpio199/direction')
+os.system('echo "1" > /sys/class/gpio/gpio199/value')
+
 with canvas(device) as draw:
     device.contrast(0)
     img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
