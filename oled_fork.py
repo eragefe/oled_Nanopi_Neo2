@@ -99,28 +99,33 @@ font2 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 13)
 font3 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Verdana.ttf', 23)
 font4 = ImageFont.truetype('/root/oled_Nanopi_Neo2/Arial-Bold.ttf', 20)
 
-os.system('echo "198" > /sys/class/gpio/export')
-os.system('echo "out" > /sys/class/gpio/gpio198/direction')
-os.system('echo "1" > /sys/class/gpio/gpio198/value')
-os.system('echo "199" > /sys/class/gpio/export')
-os.system('echo "out" > /sys/class/gpio/gpio199/direction')
-os.system('echo "1" > /sys/class/gpio/gpio199/value')
+exists = os.path.isfile('1')
 
-with canvas(device) as draw:
-    device.contrast(0)
-    img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
-       'gdis3.png'))
-    logo = Image.open(img_path)
-    draw.bitmap((25, 0), logo, fill="white")
-for level in range(0, 255, 1):
-    device.contrast(level)
-    time.sleep(0.1)
+if exists :
+  device.contrast(255)
+else:
+    os.system('echo "199" > /sys/class/gpio/export')
+    os.system('echo "out" > /sys/class/gpio/gpio199/direction')
+    os.system('echo "1" > /sys/class/gpio/gpio199/value')
+    os.system('echo "198" > /sys/class/gpio/export')
+    os.system('echo "out" > /sys/class/gpio/gpio198/direction')
+    os.system('echo "1" > /sys/class/gpio/gpio198/value')
+    os.system('echo 1 > 1')
+    with canvas(device) as draw:
+        device.contrast(0)
+        img_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
+           'gdis3.png'))
+        logo = Image.open(img_path)
+        draw.bitmap((25, 0), logo, fill="white")
+    for level in range(0, 255, 2):
+        device.contrast(level)
+        time.sleep(0.1)
 
-with canvas(device) as draw:
-    cmd = "hostname -I"
-    IP = subprocess.check_output(cmd, shell = True )
-    draw.text((0, 20), "IP: " + str(IP),  font=font2, fill=255)
-time.sleep(8)
+    with canvas(device) as draw:
+        cmd = "hostname -I"
+        IP = subprocess.check_output(cmd, shell = True )
+        draw.text((0, 20), "IP: " + str(IP),  font=font2, fill=255)
+    time.sleep(8)
 
 def main():
   client = MPDConnect()
