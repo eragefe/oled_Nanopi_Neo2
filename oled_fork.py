@@ -119,9 +119,12 @@ else:
         time.sleep(0.1)
 
     with canvas(device) as draw:
-        cmd = "hostname -I"
-        IP = subprocess.check_output(cmd, shell = True )
-        draw.text((0, 20), "IP: " + str(IP),  font=font2, fill=255)
+        eth = os.popen('ip addr show eth0 | grep "\<inet\>" | awk \'{ print $2 }\' | awk -F "/" \'{ print $1 }\'').read().strip()
+        wlan = os.popen('ip addr show wlan0 | grep "\<inet\>" | awk \'{ print $2 }\' | awk -F "/" \'{ print $1 }\'').read().strip()
+        draw.text((5, 0), "Ethernet",  font=font2, fill=255)
+        draw.text((5, 15), str(eth),  font=font2, fill=255)
+        draw.text((5, 35), "Wireless",  font=font2, fill=255)
+        draw.text((5, 50), str(wlan),  font=font2, fill=255)
     time.sleep(8)
 
 def main():
