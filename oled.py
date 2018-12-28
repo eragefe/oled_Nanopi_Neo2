@@ -153,8 +153,10 @@ def main():
 
     if '0' in open('/sys/class/gpio/gpio198/value').read():
       if '0' in open('/sys/class/gpio/gpio199/value').read():
-        if (state == 'stop'):
+        
+        if state == 'stop':
           with canvas(device) as draw:
+            
              draw.text((0,13),str(vol), font=font, fill=255)
 
         if state == 'play':
