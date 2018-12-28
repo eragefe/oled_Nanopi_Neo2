@@ -104,10 +104,10 @@ if os.path.isfile('1') :
 else:
     os.system('echo "199" > /sys/class/gpio/export')
     os.system('echo "out" > /sys/class/gpio/gpio199/direction')
-    os.system('echo "1" > /sys/class/gpio/gpio199/value')
+    os.system('echo "0" > /sys/class/gpio/gpio199/value')
     os.system('echo "198" > /sys/class/gpio/export')
     os.system('echo "out" > /sys/class/gpio/gpio198/direction')
-    os.system('echo "1" > /sys/class/gpio/gpio198/value')
+    os.system('echo "0" > /sys/class/gpio/gpio198/value')
     os.system('echo 1 > 1')
     with canvas(device) as draw:
         device.contrast(0)
@@ -146,13 +146,13 @@ def main():
         with canvas(device) as draw:
              draw.text((15,15),"Optical 1", font=font3, fill=255)
 
-    if '0' in open('/sys/class/gpio/gpio198/value').read():
+    if '1' in open('/sys/class/gpio/gpio198/value').read():
       if '1' in open('/sys/class/gpio/gpio199/value').read():
         with canvas(device) as draw:
              draw.text((15,15),"Optical 2", font=font3, fill=255)
 
-    if '1' in open('/sys/class/gpio/gpio198/value').read():
-      if '1' in open('/sys/class/gpio/gpio199/value').read():
+    if '0' in open('/sys/class/gpio/gpio198/value').read():
+      if '0' in open('/sys/class/gpio/gpio199/value').read():
         if (state == 'stop'):
           with canvas(device) as draw:
              draw.text((0,13),str(vol), font=font, fill=255)
