@@ -1,5 +1,10 @@
 # oled_Odroid
 
+#eneable i2c
+edit /etc/modules
+i2c-dev
+aml_i2c
+
 apt update
 apt install python-pip i2c-tools python-dev python-smbus python-mpd python-flask libfreetype6-dev libjpeg-dev build-essential -y --allow-unauthenticated
 
