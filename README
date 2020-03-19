@@ -1,4 +1,4 @@
-# oled_Odroid
+# oled for odroid
 
 #enable i2c
 edit /etc/modules
