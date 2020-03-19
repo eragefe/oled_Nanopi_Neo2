@@ -94,10 +94,10 @@ class MPDConnect(object):
 
         return({'state':state, 'artist':artist, 'title':title, 'eltime':eltime, 'volume':int(vol), 'audio_info':audio_info})
 
-font = ImageFont.truetype('/root/pi3/oled/Verdana.ttf', 47)
-font2 = ImageFont.truetype('/root/pi3/oled/Verdana.ttf', 13)
-font3 = ImageFont.truetype('/root/pi3/oled/Verdana.ttf', 23)
-font4 = ImageFont.truetype('/root/pi3/oled/Arial-Bold.ttf', 20)
+font = ImageFont.truetype('/root/oled_odroid/Verdana.ttf', 47)
+font2 = ImageFont.truetype('/root/oled_odroid/Verdana.ttf', 13)
+font3 = ImageFont.truetype('/root/oled_odroid/Verdana.ttf', 23)
+font4 = ImageFont.truetype('/root/oled_odroid/Arial-Bold.ttf', 20)
 
 def main():
   client = MPDConnect()
