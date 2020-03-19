@@ -1,9 +1,7 @@
-# oled_Nanopi_Neo2
+# oled_Odroid
 
-Install luma.oled
+apt update
+apt install python-pip i2c-tools python-dev python-smbus python-mpd python-flask libfreetype6-dev libjpeg-dev build-essential -y --allow-unauthenticated
 
-cd /root
-git clone https://github.com/eragefe/oled_Nanopi_Neo2
-cd oled_Nanopi_Neo2
-cp oled.service /etc/systemd/system
-systemctl enable oled
+python -m pip install --upgrade pip setuptools wheel
+pip install --upgrade luma.oled
