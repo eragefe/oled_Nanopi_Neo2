@@ -11,3 +11,7 @@ apt install python-pip i2c-tools python-dev python-smbus python-mpd python-flask
 python -m pip install --upgrade pip setuptools wheel
 pip install --upgrade luma.oled
 
+cd /root/oled_odroid
+cp oled.service /etc/systemd/system
+systemctl enable oled
+
